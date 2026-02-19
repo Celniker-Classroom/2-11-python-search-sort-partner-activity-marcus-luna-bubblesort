@@ -9,12 +9,15 @@ for i in range(10): #for loop appends 5 ranNums to your list, but make sure you 
     ranNums.append(randint(1,50)) #this adds a random number between 1-50 to the list
 
 
-print("Generated list:",ranNums) #print the list!
+print(ranNums) #print the list!
 
 random_number_to_search = randint(1, 20)
-print("Searching for number:", random_number_to_search)
 
-if random_number_to_search in ranNums:
-    print("Number",random_number_to_search,"found in the list!")
-else:
-    print("Number",random_number_to_search,"not found in the list.")
+comparisons = 0  # Initialize the counter for comparisons
+found = False  # Variable to track if the number was found
+
+for number in ranNums:  # Name your variable in the for loop
+    comparisons += 1  # Increment the counter for each comparison
+    if number == random_number_to_search:
+        found = True  # Set found to True if the number is in the list
+        break  # Exit the loop early if the number is found
