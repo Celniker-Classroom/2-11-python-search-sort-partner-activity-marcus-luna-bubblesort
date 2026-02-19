@@ -26,3 +26,11 @@ print("the minimum value is", minimum_value)
 maximum_value = max(ranNums)
 
 print("the maximum value is", maximum_value)
+
+total_value = 0
+for num in ranNums:
+    total_value+=num
+print("the total value is", total_value)
+
+ranNums.sort()
+print("your sorted list is", ranNums)
