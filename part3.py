@@ -1,6 +1,12 @@
 #write your python code here
 from random import randint #This line imports the randint function from the random module. The randint function generates a random integer between two specified values
 
+def isPrime(number):
+    for i in range(2,number-1):
+        if number % i == 0:
+            return False
+    return True
+
 ranNums = [] #name your list and make sure it is empty!
 
 
@@ -14,11 +20,13 @@ print("Generated list:",ranNums) #print the list!
 random_number_to_search = int(input("what number are you searching for?"))
 print("Searching for number:", random_number_to_search)
 
+#change message depending on if it was found
 if random_number_to_search in ranNums:
     print("Number",random_number_to_search,"found in the list!")
 else:
     print("Number",random_number_to_search,"not found in the list.")
 
+# Calculate values
 minimum_value = min(ranNums)
 
 print("the minimum value is", minimum_value)
@@ -34,3 +42,30 @@ print("the total value is", total_value)
 
 ranNums.sort()
 print("your sorted list is", ranNums)
+
+# 3 characteristics: 
+
+# Average of integers: 
+print("The average of all the numbers is",total_value/len(ranNums))
+# Greatest even number:
+foundEven = False
+for index in range(len(ranNums)-1,-1,-1): # The list is already sorted so just start from the last element to find the largest even number
+    if ranNums[index] % 2 == 0:
+        print("The largest even number is", ranNums[index])
+        foundEven = True
+        break
+
+if not foundEven:
+    print("There are no evens in the list")
+
+# Smallest prime number
+
+foundPrime = False
+for number in ranNums:
+    if isPrime(number):
+        print("The smallest prime number is",number)
+        foundPrime = True
+        break
+
+if not foundPrime:
+    print("There are no primes in the list")
