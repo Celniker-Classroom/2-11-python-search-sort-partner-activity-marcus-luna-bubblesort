@@ -11,7 +11,7 @@ ranNums = [] #name your list and make sure it is empty!
 
 
 # Generates a list of 5 or 10 random integers between 1 and 50 inclusive.
-for i in range(10): #for loop appends 5 ranNums to your list, but make sure you name your variable
+for i in range(13): #for loop appends 5 ranNums to your list, but make sure you name your variable
     ranNums.append(randint(1,50)) #this adds a random number between 1-50 to the list
 
 random_number_to_search = int(input("what number are you searching for?"))
@@ -71,6 +71,7 @@ if not foundPrime:
 
 comparisons = 0
 while True:
+    comparisons += 1
     if len(ranNums) == 0: # if you run out of numbers, the number isn't in the list
         print("number not found")
         break
@@ -79,7 +80,6 @@ while True:
         break
     middle_index = len(ranNums)//2
     middle_value = ranNums[middle_index] # find the value in the middle of the list
-    comparisons += 1
     if middle_value > random_number_to_search: 
         ranNums = ranNums[:middle_index] # Keep only the numbers below if the value to search for is below the middle value
     elif middle_value < random_number_to_search:
