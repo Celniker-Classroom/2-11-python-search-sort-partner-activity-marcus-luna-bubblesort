@@ -69,3 +69,16 @@ for number in ranNums:
 
 if not foundPrime:
     print("There are no primes in the list")
+while True:
+    if len(ranNums) == 0:
+        print("number not found")
+        break
+    middle_index = len(ranNums)//2
+    middle_value = ranNums[middle_index]
+    if middle_value > random_number_to_search:
+        ranNums = ranNums[:middle_index]
+    elif middle_value < random_number_to_search:
+        ranNums = ranNums[middle_index-1:]
+    else: 
+        print(middle_value)
+        break
