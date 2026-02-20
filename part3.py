@@ -68,20 +68,24 @@ for number in ranNums:
 
 if not foundPrime:
     print("There are no primes in the list")
+
+comparisons = 0
 while True:
-    print(ranNums)
-    if len(ranNums) == 0:
+    if len(ranNums) == 0: # if you run out of numbers, the number isn't in the list
         print("number not found")
         break
-    elif len(ranNums) == 1 and ranNums[0] != random_number_to_search:
+    elif len(ranNums) == 1 and ranNums[0] != random_number_to_search: # if the only number isn't the number to search for, it isn't in the list
         print("number not found")
         break
     middle_index = len(ranNums)//2
-    middle_value = ranNums[middle_index]
-    if middle_value > random_number_to_search:
-        ranNums = ranNums[:middle_index]
+    middle_value = ranNums[middle_index] # find the value in the middle of the list
+    comparisons += 1
+    if middle_value > random_number_to_search: 
+        ranNums = ranNums[:middle_index] # Keep only the numbers below if the value to search for is below the middle value
     elif middle_value < random_number_to_search:
-        ranNums = ranNums[middle_index+1:]
-    else: 
+        ranNums = ranNums[middle_index+1:] # Keep only the numbers above if the value to search for is above the middle value
+    else:  # If the value is the value to search for then the value is found
         print(middle_value)
         break
+
+print(comparisons,"comparisons")
