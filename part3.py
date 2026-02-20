@@ -14,11 +14,10 @@ ranNums = [] #name your list and make sure it is empty!
 for i in range(10): #for loop appends 5 ranNums to your list, but make sure you name your variable
     ranNums.append(randint(1,50)) #this adds a random number between 1-50 to the list
 
-
-print("Generated list:",ranNums) #print the list!
-
 random_number_to_search = int(input("what number are you searching for?"))
 print("Searching for number:", random_number_to_search)
+
+print("Generated list:",ranNums) #print the list!
 
 #change message depending on if it was found
 if random_number_to_search in ranNums:
@@ -70,7 +69,11 @@ for number in ranNums:
 if not foundPrime:
     print("There are no primes in the list")
 while True:
+    print(ranNums)
     if len(ranNums) == 0:
+        print("number not found")
+        break
+    elif len(ranNums) == 1 and ranNums[0] != random_number_to_search:
         print("number not found")
         break
     middle_index = len(ranNums)//2
@@ -78,7 +81,7 @@ while True:
     if middle_value > random_number_to_search:
         ranNums = ranNums[:middle_index]
     elif middle_value < random_number_to_search:
-        ranNums = ranNums[middle_index-1:]
+        ranNums = ranNums[middle_index+1:]
     else: 
         print(middle_value)
         break
